@@ -28,7 +28,6 @@ export class OrdersService {
   async findAll(params: IOrderQuery) {
     const { page, pageSize, orderName = '', orderId } = params;
     const where = orderName === '' ? { orderId } : { orderName };
-    console.log('where', where);
     const result = await this.ordersRepository.findAndCount({
       take: pageSize,
       skip: pageSize * (page - 1),
